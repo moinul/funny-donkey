@@ -1,0 +1,437 @@
+﻿body
+{
+	margin: 0;
+}
+
+/*Home
+=-----------------------*/
+/*Common*/
+
+#BodyText
+{
+	font-family: Arial,Tahoma, Verdana, Helvetica, sans-serif;
+	letter-spacing: 1px;
+	font-size: 11px;
+	color: #666666;
+	display: inline-block;
+	font-style: normal;
+	padding: 0px 0px 0px 10px;
+	float: left;
+	text-align: left;
+	width: 98%;
+	margin: 0px 5px 5px 5px;
+}
+
+#menuContainer
+{
+	width: 100%;
+}
+
+#Header
+{
+	font-family: Arial;
+	letter-spacing: 1px;
+	font-size: 18px;
+	color: #009900;
+	font-style: normal;
+	padding: 5px 0px 0px 10px;
+	float: left;
+	word-spacing: 1px;
+	margin: 10px 5px 5px 5px;
+}
+
+
+/*Common*/
+
+#bodycontainer
+{
+	margin: 0px;
+	width: 100%;
+	background-color: #F2F2F2;
+}
+
+#bodyInnerContainer
+{
+	margin: 0px;
+	width: 920px;
+	background-color: #F2F2F2;
+}
+
+
+
+#welcomeContainer
+{
+	margin: 0px;
+	padding: 5px 5px 5px 5px;
+	float: left;
+	vertical-align: top;
+}
+
+
+#welcomeHeader
+{
+	font-family: Arial;
+	letter-spacing: 1px;
+	font-size: 18px;
+	color: #009900;
+	font-style: normal;
+	padding: 5px 0px 0px 10px;
+	float: left;
+	word-spacing: 1px;
+	margin: 10px 5px 5px 5px;
+}
+
+#welcomeBodyText
+{
+	font-family: Arial,Tahoma, Verdana, Helvetica, sans-serif;
+	letter-spacing: 1px;
+	font-size: 11px;
+	color: #666666;
+	display: inline-block;
+	font-style: normal;
+	padding: 0px 0px 0px 10px;
+	float: left;
+	text-align: left;
+	width: 95%;
+	margin: 0px 5px 5px 5px;
+}
+
+#serviceContainer
+{
+	width: 580px;
+	margin: 0px;
+	padding: 5px 5px 5px 5px;
+	float: left;
+}
+
+
+#serviceHeader
+{
+	font-family: Arial;
+	letter-spacing: 1px;
+	font-size: 18px;
+	color: #009900;
+	font-style: normal;
+	padding: 5px 0px 0px 10px;
+	float: left;
+	word-spacing: 1px;
+	margin: 10px 5px 5px 5px;
+}
+
+#serviceBodyText
+{
+	font-family: Arial,Tahoma, Verdana, Helvetica, sans-serif;
+	letter-spacing: 1px;
+	font-size: 11px;
+	color: #666666;
+	font-style: normal;
+	display: inline-block;
+	padding: 0px 0px 0px 10px;
+	float: left;
+	text-align: left;
+	width: 96%;
+	margin: 0px 5px 5px 5px;
+}
+
+
+#newsContainer
+{
+	width: 290px;
+	margin: 0px;
+	padding: 5px 5px 5px 5px;
+	float: right;
+	vertical-align: top;
+}
+
+#newsHeader
+{
+	font-family: Arial;
+	letter-spacing: 1px;
+	font-size: 18px;
+	color: #009900;
+	font-style: normal;
+	padding: 5px 25px 0px 0px;
+	margin: 0px 0px 5px 0px;
+	float: right;
+	word-spacing: 1px;
+}
+
+#newsBodyText
+{
+	font-family: Arial,Tahoma, Verdana, Helvetica, sans-serif;
+	letter-spacing: 1px;
+	font-size: 10.5px;
+	color: #FF3300;
+	font-style: normal;
+	display: inline-block;
+	padding: 0px 20px 0px 5px;
+	float: right;
+	text-align: left;
+	width: 96%;
+}
+
+#separator
+{
+	background-image: url(../Images/separator.gif);
+	background-repeat: repeat-x;
+	padding: 1px 1px 1px 1px;
+	width: 98%;
+	margin: 100px 0px 0px 0px;
+	height: 10px;
+}
+
+#verticalSeparator
+{
+	background-image: :url(../Images/separatorVertical.gif);
+	background-repeat: repeat-y;
+	padding: 0px 0px 0px 0px;
+	width: 20px;
+	height: 100%;
+	margin: 0px 0px 0px 0px;
+	float: right;
+}
+
+
+/*header....................................*/
+#header_container
+{
+	margin: 0px;
+	width: 100%;
+	background-color: White;
+}
+
+
+#logoContainer
+{
+	margin: 0px;
+	width: 100%;
+	background-color: White;
+}
+
+#buttonContainer
+{
+	margin: 0px;
+	width: 100%;
+	height: 28px;
+	background-color: #333333;
+}
+
+
+#headerInnerContainer
+{
+	margin: 0px;
+	width: 960px;
+	background-color: White;
+}
+
+#logoContainer
+{
+	width: 100%;
+	padding: 5px 5px 5px 5px;
+}
+
+#companyName
+{
+	float: left;
+	font-family: Forte, Arial,Tahoma;
+	font-size: 32px;
+	color: #007AC3;
+	margin: 28px 0px 1px 2px;
+}
+
+#logo
+{
+	background-image: url(../Images/comLogo1.png);
+	background-repeat: no-repeat;
+	float: left;
+	width: 90px;
+	height: 90px;
+	margin: 10px 0px 2px 200px;
+}
+
+
+#menu
+{
+	width: 960px;
+}
+
+
+/*footer....................................*/
+#footer_container
+{
+	width: 100%;
+	background-color: #252525;
+	margin: 0px;
+	clear: both;
+	vertical-align: middle;
+}
+
+#footer_body
+{
+	height: 150px;
+	background-color: #252525;
+	text-align: center;
+	vertical-align: middle;
+	margin: 0px;
+}
+
+#footerCopyrightext
+{
+	font-family: Arial;
+	font-size: 10px;
+	font-weight: bold;
+	color: White;
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+
+#footerLinkHeadingText
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: White;
+	text-align: left;
+}
+
+#footerAoubtUsHeadingText
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: White;
+	text-align: left;
+}
+
+#footerAoutUsText
+{
+	font-family: Arial;
+	font-size: 10px;
+	letter-spacing: 1px;
+	float: right;
+	color: White;
+	text-align: left;
+	vertical-align: top;
+}
+
+#footerContactHeadingText
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: White;
+	float: right;
+}
+#footerContactText
+{
+	font-family: Arial;
+	font-size: 10px;
+	letter-spacing: 1px;
+	float: right;
+	color: White;
+	text-align: right;
+	vertical-align: middle;
+}
+
+
+
+/*Login...........................*/
+#loginContainer
+{
+	background-color: White;
+	margin: 0px 0px 0px 0px;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+
+
+#loginHeader
+{
+	margin: 0px 0px 0px 0px;
+	padding-top: 5px;
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffffff; /*background-color: #333333;*/
+	background-image: url(../Images/bar_back.jpg);
+	background-repeat: repeat-x;
+}
+
+
+/*Registration................*/
+
+#RegContainer
+{
+	background-color: #DDDDDD;
+	margin: 0px 0px 0px 0px;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+#RegHeader
+{
+	margin: 0px 0px 0px 0px;
+	padding-top: 5px;
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffffff; /*background-color: #333333;*/
+	background-image: url(../Images/bar_back.jpg);
+	background-repeat: repeat-x;
+}
+
+/*ClientMain*/
+
+#ClientBodyContainer
+{
+	margin: 0px;
+	width: 100%;
+}
+
+#ClientProfileHeader
+{
+	font-family: Arial;
+	font-size: 18px;
+	font-weight: bold;
+	background-image: url(../Images/Hrading_Back.jpg);
+	background-repeat: repeat-x;
+	color: Black;
+	text-align: center;
+	width: 98%;
+	height: 50px;
+	padding-left: 1px;
+	margin: 0px;
+}
+
+#GeneralInfoHeader
+{
+	margin: 0px 0px 0px 0px;
+	padding-top: 5px 5px 5px 5px;
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	color: #999999;
+	height: 30px;
+	width: 98%;
+	background-image: url(../Images/Hrading_Back_2.jpg);
+	background-repeat: repeat-x;
+}
+
+
+#ClientGeneralInfoText
+{
+	font-family: Arial,Tahoma, Verdana, Helvetica, sans-serif;
+	letter-spacing: 1px;
+	font-size: 13px;
+	color: #666666;
+	font-style: normal;
+	padding: 0px 0px 0px 10px;
+	float: left;
+	text-align: left;
+	width: 98%;
+	margin: 0px 5px 5px 0px;
+}
+
+
+
+

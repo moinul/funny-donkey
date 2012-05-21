@@ -1,0 +1,72 @@
+﻿.mainstructure
+{
+	width: 100%;
+	height: auto;
+}
+.nodelevel
+{
+	width: 100%;
+	height: 85px;
+	float: left;
+	border-bottom: solid 1px black;
+	background-color:Gray;
+}
+.node
+{
+	background-color: Green;
+	border: 1px solid black;
+	height: 55px;
+	margin-top: 5px;
+	width: 110px;
+}
+.Secondleveldivider
+{
+	width: 50%;
+	height: 85px;
+	float: left;
+	
+}
+.Thirdleveldivider
+{
+	width: 25%;
+	height: 85px;
+	float: left;
+	
+	
+}
+.Fourleveldivider
+{
+	width: 12.5%;
+	height: 85px;
+	float: left;
+	
+}
+a.nodeLink:link    {
+  /* Applies to unvisited links of class mainNav */
+  text-decoration:  none;
+  font-weight:      normal;
+  /*background-color: #ddd;*/
+  color:           #fff;
+  } 
+a.nodeLink:visited {
+  /* Applies to visited links of class mainNav */
+  text-decoration:  none;
+  font-weight:      normal;
+  /*background-color: #ddd;*/
+  color:            #fff;
+  } 
+a.nodeLink:hover   {
+  /* Applies to links under the pointer of class mainNav */
+  text-decoration:  underline;
+  font-weight:      normal;
+  font-style:		italic;
+  /*background-color: blue;*/
+  color:            #fff;
+  } 
+a.nodeLink:active  {
+  /* Applies to activated links of class mainNav */
+  text-decoration:  underline;
+  font-weight:      normal;
+  /*background-color: black;*/
+  color:			#fff;
+  } 

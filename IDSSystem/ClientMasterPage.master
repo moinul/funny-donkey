@@ -1,0 +1,58 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ClientMasterPage.master.cs"
+    Inherits="ClientMasterPage" %>
+
+<%@ Register Src="Controls/ctlHeader.ascx" TagName="ctlHeader" TagPrefix="uc1" %>
+<%@ Register Src="Controls/ctlFooter.ascx" TagName="ctlFooter" TagPrefix="uc2" %>
+<%@ Register src="Controls/ctlClientMenu.ascx" tagname="ctlClientMenu" tagprefix="uc3" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link href="Scripts/CommonStyleSheet.css" type="text/css" rel="Stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin: 0px">
+        <tr>
+            <td align="center" valign="top">
+                <uc1:ctlHeader ID="ctlHeader1" runat="server" />
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="top">
+                <table width="960px">
+                    <tr>
+                        <td>
+                            <table width="100%">
+                                <tr>
+                                    <td align="left" style="width: 220px" valign="top">
+                                        <uc3:ctlClientMenu ID="ctlClientMenu1" runat="server" />
+                                    </td>
+                                    <td align="left" style="min-height: 600px;" valign="top">
+                                        <div>
+                                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                            </asp:ContentPlaceHolder>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="top">
+                <uc2:ctlFooter ID="ctlFooter1" runat="server" />
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

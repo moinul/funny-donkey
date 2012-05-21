@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="IDSDB" Class="IDSDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=IMTI-PC;Initial Catalog=IDSDB;Persist Security Info=True;User ID=sa" SettingsObjectName="IM.DAL.Properties.Settings" SettingsPropertyName="IDSDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CompanyAddress" Member="CompanyAddresses">
+    <Type Name="CompanyAddress">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompanyID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CompanyInfo_CompanyAddress" Member="CompanyInfo" ThisKey="CompanyID" Type="CompanyInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CompanyConfiguration" Member="CompanyConfigurations">
+    <Type Name="CompanyConfiguration">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrationAmount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RegistrationSponsorAmount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CompanyInfo" Member="CompanyInfos">
+    <Type Name="CompanyInfo">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MainPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="CompanyInfo_CompanyAddress" Member="CompanyAddresses" OtherKey="CompanyID" Type="CompanyAddress" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CompanyTransactionType" Member="CompanyTransactionTypes">
+    <Type Name="CompanyTransactionType">
+      <Column Name="IID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CompanyTransactionType_UserPaidToCompany" Member="UserPaidToCompanies" OtherKey="CompanyTransactionTypeID" Type="UserPaidToCompany" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegistrationPaymentType" Member="RegistrationPaymentTypes">
+    <Type Name="RegistrationPaymentType">
+      <Column Name="IID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="RegistrationPaymentType_SystemUser" Member="SystemUsers" OtherKey="RegistrationPaymentTypeID" Type="SystemUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SystemUser" Member="SystemUsers">
+    <Type Name="SystemUser">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ContactNo" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="AspUserID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="AthunticationID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LeftHandID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RightHandID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SponsorID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UserDesplayID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RegistrationPaymentTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsRemoved" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SystemUser_SystemUser" Member="SystemUsers" OtherKey="LeftHandID" Type="SystemUser" />
+      <Association Name="SystemUser_SystemUser1" Member="SystemUsers1" OtherKey="RightHandID" Type="SystemUser" />
+      <Association Name="SystemUser_SystemUser2" Member="SystemUsers2" OtherKey="SponsorID" Type="SystemUser" />
+      <Association Name="SystemUser_SystemUser3" Member="SystemUsers3" OtherKey="ParentID" Type="SystemUser" />
+      <Association Name="SystemUser_UserBalance" Member="UserBalances" OtherKey="UserID" Type="UserBalance" />
+      <Association Name="SystemUser_UserDailyLinkClick" Member="UserDailyLinkClicks" OtherKey="UserID" Type="UserDailyLinkClick" />
+      <Association Name="SystemUser_UserMoneyTransfer" Member="UserMoneyTransfers" OtherKey="FromUser" Type="UserMoneyTransfer" />
+      <Association Name="SystemUser_UserMoneyTransfer1" Member="UserMoneyTransfers1" OtherKey="ToUser" Type="UserMoneyTransfer" />
+      <Association Name="SystemUser_UserPaidToCompany" Member="UserPaidToCompanies" OtherKey="UserID" Type="UserPaidToCompany" />
+      <Association Name="SystemUser_UserTransactionHistory" Member="UserTransactionHistories" OtherKey="UserID" Type="UserTransactionHistory" />
+      <Association Name="SystemUser_UserTransactionHistory1" Member="UserTransactionHistories1" OtherKey="FromUser" Type="UserTransactionHistory" />
+      <Association Name="SystemUser_UserWithdrawRequest" Member="UserWithdrawRequests" OtherKey="UserID" Type="UserWithdrawRequest" />
+      <Association Name="RegistrationPaymentType_SystemUser" Member="RegistrationPaymentType" ThisKey="RegistrationPaymentTypeID" Type="RegistrationPaymentType" IsForeignKey="true" />
+      <Association Name="SystemUser_SystemUser" Member="SystemUser1" ThisKey="LeftHandID" Type="SystemUser" IsForeignKey="true" />
+      <Association Name="SystemUser_SystemUser1" Member="SystemUser2" ThisKey="RightHandID" Type="SystemUser" IsForeignKey="true" />
+      <Association Name="SystemUser_SystemUser2" Member="SystemUser3" ThisKey="SponsorID" Type="SystemUser" IsForeignKey="true" />
+      <Association Name="SystemUser_SystemUser3" Member="SystemUser4" ThisKey="ParentID" Type="SystemUser" IsForeignKey="true" />
+      <Association Name="UserKeyInfo_SystemUser" Member="UserKeyInfo" ThisKey="AthunticationID" Type="UserKeyInfo" IsForeignKey="true" />
+      <Association Name="UserType_SystemUser" Member="UserType" ThisKey="TypeID" Type="UserType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserBalance" Member="UserBalances">
+    <Type Name="UserBalance">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="SystemUser_UserBalance" Member="SystemUser" ThisKey="UserID" Type="SystemUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserDailyLinkClick" Member="UserDailyLinkClicks">
+    <Type Name="UserDailyLinkClick">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ClickCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SystemUser_UserDailyLinkClick" Member="SystemUser" ThisKey="UserID" Type="SystemUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserKeyInfo" Member="UserKeyInfos">
+    <Type Name="UserKeyInfo">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserKey" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="UserPaymetType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KeyTaker" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="KeyTakerPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="UserKeyInfo_SystemUser" Member="SystemUsers" OtherKey="AthunticationID" Type="SystemUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserMoneyTransfer" Member="UserMoneyTransfers">
+    <Type Name="UserMoneyTransfer">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FromUser" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ToUser" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TransactionKey" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="SystemUser_UserMoneyTransfer" Member="SystemUser" ThisKey="FromUser" Type="SystemUser" IsForeignKey="true" />
+      <Association Name="SystemUser_UserMoneyTransfer1" Member="SystemUser1" ThisKey="ToUser" Type="SystemUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserPaidToCompany" Member="UserPaidToCompanies">
+    <Type Name="UserPaidToCompany">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyTransactionTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CompanyTransactionType_UserPaidToCompany" Member="CompanyTransactionType" ThisKey="CompanyTransactionTypeID" Type="CompanyTransactionType" IsForeignKey="true" />
+      <Association Name="SystemUser_UserPaidToCompany" Member="SystemUser" ThisKey="UserID" Type="SystemUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserTransactionHistory" Member="UserTransactionHistories">
+    <Type Name="UserTransactionHistory">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="UserTransactionTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SponsorAmount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TAXAmount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ActualAmount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TransactionKey" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FromUser" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="SystemUser_UserTransactionHistory" Member="SystemUser" ThisKey="UserID" Type="SystemUser" IsForeignKey="true" />
+      <Association Name="SystemUser_UserTransactionHistory1" Member="SystemUser1" ThisKey="FromUser" Type="SystemUser" IsForeignKey="true" />
+      <Association Name="UserTransactionType_UserTransactionHistory" Member="UserTransactionType" ThisKey="UserTransactionTypeID" Type="UserTransactionType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserTransactionType" Member="UserTransactionTypes">
+    <Type Name="UserTransactionType">
+      <Column Name="IID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="UserTransactionType_UserTransactionHistory" Member="UserTransactionHistories" OtherKey="UserTransactionTypeID" Type="UserTransactionHistory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserType" Member="UserTypes">
+    <Type Name="UserType">
+      <Column Name="IID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="UserType_SystemUser" Member="SystemUsers" OtherKey="TypeID" Type="SystemUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Advertise" Member="Advertises">
+    <Type Name="Advertise">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserWithdrawRequest" Member="UserWithdrawRequests">
+    <Type Name="UserWithdrawRequest">
+      <Column Name="IID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TransactionKey" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TransactionStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RequestDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ComplitionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="SystemUser_UserWithdrawRequest" Member="SystemUser" ThisKey="UserID" Type="SystemUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.UserDailyIncome" Method="UserDailyIncome">
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="UserDailyIncomeResult">
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SponsorAmount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TAXAmount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ActualAmount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TransactionKey" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PostRegistrationProcess" Method="PostRegistrationProcess">
+    <Parameter Name="systemUserID" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_InsertUserTransactionHistory" Method="sp_InsertUserTransactionHistory">
+    <Parameter Name="userId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="transType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Amount" Parameter="amount" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="description" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="sponsorAmount" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="taxAmount" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="actualAmount" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="transactionKey" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_InsertUserTransfer" Method="sp_InsertUserTransfer">
+    <Parameter Name="fromUserId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="toUserId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Amount" Parameter="amount" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="transactionKey" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_UpdateUserBlance" Method="sp_UpdateUserBlance">
+    <Parameter Name="userId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="amount" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
